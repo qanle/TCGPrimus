@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -19,6 +21,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: '404', component: NotFoundComponent },
