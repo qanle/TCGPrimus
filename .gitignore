@@ -102,3 +102,14 @@ dist
 
 # TernJS port file
 .tern-port
+/TCGPrimusServer/TCGPrimusServer/TCGPrimus.Contracts/bin
+/TCGPrimusServer/TCGPrimusServer/TCGPrimus.Contracts/obj
+/TCGPrimusServer/TCGPrimusServer/TCGPrimus.Entities/bin
+/TCGPrimusServer/TCGPrimusServer/TCGPrimus.LoggerService/obj
+/TCGPrimusServer/TCGPrimusServer/TCGPrimus.LoggerService/bin
+/TCGPrimusServer/TCGPrimusServer/TCGPrimus.Repository/obj
+/TCGPrimusServer/TCGPrimusServer/TCGPrimus.Repository/bin
+/TCGPrimusServer/TCGPrimusServer/TCGPrimusApi/bin
+/TCGPrimusServer/TCGPrimusServer/TCGPrimusApi/obj
+/TCGPrimusServer/TCGPrimusServer/TCGPrimus.Entities/obj
+/ApiPublish

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TCGPrimus.Contracts\TCGPrimus.Contracts.csproj" />
+    <ProjectReference Include="..\TCGPrimus.Entities\TCGPrimus.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
