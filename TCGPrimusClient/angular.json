@@ -24,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_module/bootstrap/dis/css/bootstrap.min.css",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
               "./node_modules/jqueryui/jquery-ui.min.css",
               "src/styles.css"
             ],
