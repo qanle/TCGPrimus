@@ -5,11 +5,10 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms'
 
 
+import { ShareModule } from './../share/share.module';
 
 import { OwnerListComponent } from './owner-list/owner-list.component';
 import { OwnerDetailsComponent } from './owner-details/owner-details.component';
-
-import { ShareModule } from './../share/share.module';
 import { OwnerCreateComponent } from './owner-create/owner-create.component';
 import { OwnerUpdateComponent } from './owner-update/owner-update.component';
 import { OwnerDeleteComponent } from './owner-delete/owner-delete.component';
