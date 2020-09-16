@@ -12,6 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { ErrorModalComponent } from './shared/modals/error-modal/error-modal.component';
+import { SuccessModalComponent } from './shared/modals/success-modal/success-modal.component';
+import { DatepickerDirective } from './shared/directives/datepicker.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
     MenuComponent,
     NotFoundComponent,
     InternalServerComponent,
+    ErrorModalComponent,
+    SuccessModalComponent,
+    DatepickerDirective,
   ],
   imports: [
     BrowserModule,
