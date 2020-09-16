@@ -11,6 +11,7 @@ import { OwnerDetailsComponent } from './owner-details/owner-details.component';
 
 import { ShareModule } from './../share/share.module';
 import { OwnerCreateComponent } from './owner-create/owner-create.component';
+import { OwnerUpdateComponent } from './owner-update/owner-update.component';
 
 @NgModule({
   imports: [
@@ -21,12 +22,14 @@ import { OwnerCreateComponent } from './owner-create/owner-create.component';
       { path: 'list', component: OwnerListComponent },
       { path: 'details/:id', component: OwnerDetailsComponent },
       { path: 'create', component: OwnerCreateComponent },
+      { path: 'update/:id', component: OwnerUpdateComponent },
     ]),
   ],
   declarations: [
     OwnerListComponent,
     OwnerDetailsComponent,
     OwnerCreateComponent,
+    OwnerUpdateComponent,
   ],
 })
 export class OwnerModule {}

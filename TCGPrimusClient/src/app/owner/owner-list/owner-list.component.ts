@@ -26,7 +26,7 @@ export class OwnerListComponent implements OnInit {
 
   public getAllOwners = () => {
     let apiAddress: string = 'api/owner';
-    
+
     this.repository.getData(apiAddress).subscribe(
       (res) => {
         this.owners = res as Owner[];
@@ -41,5 +41,10 @@ export class OwnerListComponent implements OnInit {
   public getOwnerDetails = (id) => {
     const detailsUrl: string = `/owner/details/${id}`;
     this.router.navigate([detailsUrl]);
+  };
+
+  public redirectToUpdatePage = (id) => {
+    const updateUrl: string = `/owner/update/${id}`;
+    this.router.navigate([updateUrl]);
   };
 }
