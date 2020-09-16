@@ -14,6 +14,11 @@ import { RepositoryService } from './shared/services/repository.service';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { DatePipe } from '@angular/common';
 
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationDialogComponent } from './shared/modals/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogService } from './shared/modals/confirmation-dialog/confirmation-dialog.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +26,7 @@ import { DatePipe } from '@angular/common';
     MenuComponent,
     NotFoundComponent,
     InternalServerComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,13 +43,16 @@ import { DatePipe } from '@angular/common';
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: '**', redirectTo: '/404', pathMatch: 'full' },
     ]),
+    NgbModule,
   ],
   providers: [
     EnvironmentUrlService,
     RepositoryService,
     ErrorHandlerService,
     DatePipe,
+    ConfirmationDialogService,
   ],
+  entryComponents: [ConfirmationDialogComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

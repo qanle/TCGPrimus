@@ -30,10 +30,19 @@
                             <button type="button" id="details" class="btn btn-light" (click)="getOwnerDetails(owner.id)">Details</button>
                         </td>
                         <td><button type="button" id="update" class="btn btn-success" (click)="redirectToUpdatePage(owner.id)">Update</button></td>
-                        <td><button type="button" id="delete" class="btn btn-danger" (click)="redirectToDeletePage(owner.id)">Delete</button></td>
+                        <td>
+                            <button (click)="openConfirmationDialog(owner.id)" type="button" class="btn btn-primary">Delete Confirm</button>
+                            <button type="button" id="delete" class="btn btn-danger" (click)="redirectToDeletePage(owner.id)">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+<app-success-modal [modalHeaderText]="'Success message'" [modalBodyText]="'Action completed successfully'"
+    [okButtonText]="'OK'" (redirectOnOK)="redirectToOwnerList()"></app-success-modal>
+
+<app-error-modal [modalHeaderText]="'Error message'" [modalBodyText]="errorMessage" [okButtonText]="'OK'">
+</app-error-modal>
