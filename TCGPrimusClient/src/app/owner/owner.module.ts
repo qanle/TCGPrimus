@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms'
 
 
-import { ShareModule } from './../share/share.module';
+import { SharedModule } from './../shared/shared.module';
 
 import { OwnerListComponent } from './owner-list/owner-list.component';
 import { OwnerDetailsComponent } from './owner-details/owner-details.component';
@@ -16,7 +16,7 @@ import { OwnerDeleteComponent } from './owner-delete/owner-delete.component';
 @NgModule({
   imports: [
     CommonModule,
-    ShareModule,
+    SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       { path: 'list', component: OwnerListComponent },
