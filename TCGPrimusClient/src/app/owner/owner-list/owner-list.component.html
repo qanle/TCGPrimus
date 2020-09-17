@@ -31,7 +31,7 @@
                         </td>
                         <td><button type="button" id="update" class="btn btn-success" (click)="redirectToUpdatePage(owner.id)">Update</button></td>
                         <td>
-                            <button (click)="openConfirmationDialog(owner.id)" type="button" class="btn btn-primary">Delete Confirm</button>
+                            <button (click)="openConfirmationDialog(owner.id,owner.name)" type="button" class="btn btn-primary">Delete Confirm</button>
                             <button type="button" id="delete" class="btn btn-danger" (click)="redirectToDeletePage(owner.id)">Delete</button>
                         </td>
                     </tr>

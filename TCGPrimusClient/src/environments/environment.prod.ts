@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlAddress: 'https://www.tcg.com'
+  urlAddress: 'http://45.124.95.214:5000'
 };

@@ -57,14 +57,15 @@ export class OwnerListComponent implements OnInit {
     this.router.navigate([deleteUrl]);
   };
 
-  public openConfirmationDialog(id) {
+  public openConfirmationDialog(id,name) {
     this.confirmationDialogService
-      .confirm('Please confirm..', 'Do you really want to delete Owner ?')
-      .then(
-        (confirmed) => {
-          if (confirmed) this.deleteOwner(id);          
-        }        
+      .confirm(
+        'Please confirm..',
+        `Do you really want to delete ${name}?`
       )
+      .then((confirmed) => {
+        if (confirmed) this.deleteOwner(id);
+      })
       .catch(() =>
         alert(
           'User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'
