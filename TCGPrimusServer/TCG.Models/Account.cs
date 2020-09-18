@@ -19,5 +19,7 @@ namespace TCG.Models
 
         [Required(ErrorMessage = "Owner Id is required")]
         public Guid OwnerId { get; set; }
+
+        public virtual Owner Owner { get; set; }
     }
 }

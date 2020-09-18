@@ -129,3 +129,6 @@ dist
 /TCGPrimusServer_/TCGPrimus.Repository/bin
 /TCGPrimusServer_/TCGPrimusApi/bin
 /TCGPrimusServer_/TCGPrimusApi/obj
+/TCGPrimusServer/TCG.BusinessRules/bin/Release/netcoreapp3.1
+/TCGPrimusServer/TCG.Identity/bin/Release/netcoreapp3.1
+/TCGPrimusServer/TCG.Models/bin/Release/netcoreapp3.1
