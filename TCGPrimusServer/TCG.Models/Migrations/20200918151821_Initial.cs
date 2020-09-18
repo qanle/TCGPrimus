@@ -60,19 +60,6 @@ namespace TCG.Models.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "folder",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_folder", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "owner",
                 columns: table => new
                 {
@@ -103,6 +90,19 @@ namespace TCG.Models.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "workflow",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_workflow", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "activityfield",
                 columns: table => new
                 {
@@ -111,9 +111,9 @@ namespace TCG.Models.Migrations
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     Label = table.Column<string>(maxLength: 50, nullable: false),
                     DataType = table.Column<string>(maxLength: 50, nullable: false),
-                    MaxLength = table.Column<int>(nullable: false),
-                    MinLength = table.Column<int>(nullable: false),
-                    Required = table.Column<bool>(type: "bit", nullable: false),
+                    MaxLength = table.Column<int>(nullable: true),
+                    MinLength = table.Column<int>(nullable: true),
+                    Required = table.Column<bool>(type: "bit", nullable: true),
                     ActivityId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -234,26 +234,6 @@ namespace TCG.Models.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "content",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 50, nullable: false),
-                    FolderId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_content", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_content_folder_FolderId",
-                        column: x => x.FolderId,
-                        principalTable: "folder",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "account",
                 columns: table => new
                 {
@@ -274,36 +254,56 @@ namespace TCG.Models.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "workflow",
+                name: "content",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    FolderId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_content", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_content_workflow_FolderId",
+                        column: x => x.FolderId,
+                        principalTable: "workflow",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "workflowitem",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     ActivitySettings = table.Column<string>(nullable: true),
-                    FolderId = table.Column<int>(nullable: true),
+                    WorkflowId = table.Column<int>(nullable: true),
                     ContentId = table.Column<int>(nullable: true),
                     ActivityId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_workflow", x => x.Id);
+                    table.PrimaryKey("PK_workflowitem", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_workflow_activity_ActivityId",
+                        name: "FK_workflowitem_activity_ActivityId",
                         column: x => x.ActivityId,
                         principalTable: "activity",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_workflow_content_ContentId",
+                        name: "FK_workflowitem_content_ContentId",
                         column: x => x.ContentId,
                         principalTable: "content",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_workflow_folder_FolderId",
-                        column: x => x.FolderId,
-                        principalTable: "folder",
+                        name: "FK_workflowitem_workflow_WorkflowId",
+                        column: x => x.WorkflowId,
+                        principalTable: "workflow",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -363,19 +363,19 @@ namespace TCG.Models.Migrations
                 column: "FolderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_workflow_ActivityId",
-                table: "workflow",
+                name: "IX_workflowitem_ActivityId",
+                table: "workflowitem",
                 column: "ActivityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_workflow_ContentId",
-                table: "workflow",
+                name: "IX_workflowitem_ContentId",
+                table: "workflowitem",
                 column: "ContentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_workflow_FolderId",
-                table: "workflow",
-                column: "FolderId");
+                name: "IX_workflowitem_WorkflowId",
+                table: "workflowitem",
+                column: "WorkflowId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -405,7 +405,7 @@ namespace TCG.Models.Migrations
                 name: "user");
 
             migrationBuilder.DropTable(
-                name: "workflow");
+                name: "workflowitem");
 
             migrationBuilder.DropTable(
                 name: "owner");
@@ -423,7 +423,7 @@ namespace TCG.Models.Migrations
                 name: "content");
 
             migrationBuilder.DropTable(
-                name: "folder");
+                name: "workflow");
         }
     }
 }

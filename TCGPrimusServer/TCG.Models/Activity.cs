@@ -17,6 +17,6 @@ namespace TCG.Models
         public string Name { get; set; }
 
         public virtual List<ActivityField> ActivityFields { get; set; }
-        public virtual List<Workflow> WorkFlows { get; set; }
+        public virtual List<WorkflowItem> WorkFlows { get; set; }
     }
 }

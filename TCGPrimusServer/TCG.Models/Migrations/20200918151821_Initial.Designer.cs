@@ -10,8 +10,8 @@ using TCG.Models.Authentication;
 namespace TCG.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200918040314_Update-Field-Model-IsNull-fields")]
-    partial class UpdateFieldModelIsNullfields
+    [Migration("20200918151821_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -321,23 +321,6 @@ namespace TCG.Models.Migrations
                     b.ToTable("content");
                 });
 
-            modelBuilder.Entity("TCG.Models.Folder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("folder");
-                });
-
             modelBuilder.Entity("TCG.Models.Owner", b =>
                 {
                     b.Property<Guid>("Id")
@@ -399,6 +382,23 @@ namespace TCG.Models.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("workflow");
+                });
+
+            modelBuilder.Entity("TCG.Models.WorkflowItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int?>("ActivityId")
                         .HasColumnType("int");
 
@@ -408,13 +408,13 @@ namespace TCG.Models.Migrations
                     b.Property<int?>("ContentId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FolderId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
+
+                    b.Property<int?>("WorkflowId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -422,9 +422,9 @@ namespace TCG.Models.Migrations
 
                     b.HasIndex("ContentId");
 
-                    b.HasIndex("FolderId");
+                    b.HasIndex("WorkflowId");
 
-                    b.ToTable("workflow");
+                    b.ToTable("workflowitem");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -498,14 +498,14 @@ namespace TCG.Models.Migrations
 
             modelBuilder.Entity("TCG.Models.Content", b =>
                 {
-                    b.HasOne("TCG.Models.Folder", "Folder")
+                    b.HasOne("TCG.Models.Workflow", "Folder")
                         .WithMany("Contents")
                         .HasForeignKey("FolderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TCG.Models.Workflow", b =>
+            modelBuilder.Entity("TCG.Models.WorkflowItem", b =>
                 {
                     b.HasOne("TCG.Models.Activity", "Activity")
                         .WithMany("WorkFlows")
@@ -515,9 +515,9 @@ namespace TCG.Models.Migrations
                         .WithMany("WorkFlows")
                         .HasForeignKey("ContentId");
 
-                    b.HasOne("TCG.Models.Folder", "Folder")
-                        .WithMany("WorkFlows")
-                        .HasForeignKey("FolderId");
+                    b.HasOne("TCG.Models.Workflow", "Workflow")
+                        .WithMany("WorkflowItems")
+                        .HasForeignKey("WorkflowId");
                 });
 #pragma warning restore 612, 618
         }

@@ -6,7 +6,7 @@ namespace TCG.BusinessRules.ExtendedModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public FolderExtended Folder { get; set; }
+        public WorkflowExtended Workflow { get; set; }
 
         public ContentExtended()
         {
@@ -16,7 +16,7 @@ namespace TCG.BusinessRules.ExtendedModels
         {
             Id = content.Id;
             Name = content.Name;
-            Folder = new FolderExtended
+            Workflow = new WorkflowExtended
             {
                 Id = content.Folder.Id,
                 Name = content.Folder.Name

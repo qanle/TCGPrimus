@@ -18,7 +18,7 @@ namespace TCG.Models
 
         //public int FolderId { get; set; }
         [Required]
-        public virtual Folder Folder { get; set; }
-        public virtual List<Workflow> WorkFlows { get; set; }
+        public virtual Workflow Folder { get; set; }
+        public virtual List<WorkflowItem> WorkFlows { get; set; }
     }
 }

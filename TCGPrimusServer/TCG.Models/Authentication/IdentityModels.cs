@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace TCG.Models.Authentication
 {
@@ -31,8 +28,8 @@ namespace TCG.Models.Authentication
         public DbSet<Activity> Activities { get; set; }
         public DbSet<ActivityField> ActivityFields { get; set; }
         public DbSet<Content> Contents { get; set; }
-        public DbSet<Folder> Folders { get; set; }
         public DbSet<Workflow> Workflows { get; set; }
+        public DbSet<WorkflowItem> WorkflowItems { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
