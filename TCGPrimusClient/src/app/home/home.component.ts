@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.homeText="WELCOM TO TCG PRIMUS";
+    console.log(_.isEmpty({})); // returns true
   }
 
 }
