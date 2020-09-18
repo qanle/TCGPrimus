@@ -4,11 +4,11 @@
             <div class="form-group row">
                 <label for="name" class="control-label col-md-2">Name of owner: </label>
                 <div class="col-md-5">
-                    <input type="text" formControlName="name" id="name" class="form-control" />
+                    <input type="text" formControlName="Name" id="Name" class="form-control" />
                 </div>
                 <div class="col-md-5">
-                    <em *ngIf="validateControl('name') && hasError('name', 'required')">Name is required</em>
-                    <em *ngIf="validateControl('name') && hasError('name', 'maxlength')">Maximum allowed length is 60
+                    <em *ngIf="validateControl('Name') && hasError('Name', 'required')">Name is required</em>
+                    <em *ngIf="validateControl('Name') && hasError('Name', 'maxlength')">Maximum allowed length is 60
                         characters.</em>
                 </div>
             </div>
@@ -16,11 +16,11 @@
             <div class="form-group row">
                 <label for="dateOfBirth" class="control-label col-md-2">Date of birth: </label>
                 <div class="col-md-5">
-                    <input type="text" formControlName="dateOfBirth" id="dateOfBirth" class="form-control" appDatepicker
+                    <input type="text" formControlName="DateOfBirth" id="DateOfBirth" class="form-control" appDatepicker
                         (change)="executeDatePicker($event)" readonly />
                 </div>
                 <div class="col-md-5">
-                    <em *ngIf="validateControl('dateOfBirth') && hasError('dateOfBirth', 'required')">Date of birth is
+                    <em *ngIf="validateControl('DateOfBirth') && hasError('DateOfBirth', 'required')">Date of birth is
                         required</em>
                 </div>
             </div>
@@ -28,11 +28,11 @@
             <div class="form-group row">
                 <label for="address" class="control-label col-md-2">Address: </label>
                 <div class="col-md-5">
-                    <input type="text" formControlName="address" id="address" class="form-control" />
+                    <input type="text" formControlName="Address" id="Address" class="form-control" />
                 </div>
                 <div class="col-md-5">
-                    <em *ngIf="validateControl('address') && hasError('address', 'required')">Address is required</em>
-                    <em *ngIf="validateControl('address') && hasError('address', 'maxlength')">Maximum allowed length is
+                    <em *ngIf="validateControl('Address') && hasError('Address', 'required')">Address is required</em>
+                    <em *ngIf="validateControl('Address') && hasError('Address', 'maxlength')">Maximum allowed length is
                         100 characters.</em>
                 </div>
             </div>

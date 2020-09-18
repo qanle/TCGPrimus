@@ -1,0 +1,8 @@
+﻿Update web.config file, include modules>remove name="WebDAVModule" in the <system.webServer>
+
+<system.webServer>
+		<modules runAllManagedModulesForAllRequests="false">
+			<remove name="WebDAVModule" />
+		</modules>
+		...
+</system.webServer>

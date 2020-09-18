@@ -25,12 +25,12 @@ export class OwnerUpdateComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.ownerForm = new FormGroup({
-      name: new FormControl('', [
+      Name: new FormControl('', [
         Validators.required,
         Validators.maxLength(60),
       ]),
-      dateOfBirth: new FormControl('', [Validators.required]),
-      address: new FormControl('', [
+      DateOfBirth: new FormControl('', [Validators.required]),
+      Address: new FormControl('', [
         Validators.required,
         Validators.maxLength(100),
       ]),
@@ -48,8 +48,8 @@ export class OwnerUpdateComponent implements OnInit {
       (res) => {
         this.owner = res as Owner;
         this.ownerForm.patchValue(this.owner);
-        $('#dateOfBirth').val(
-          this.datePipe.transform(this.owner.dateOfBirth, 'MM/dd/yyyy')
+        $('#DateOfBirth').val(
+          this.datePipe.transform(this.owner.DateOfBirth, 'MM/dd/yyyy')
         );
       },
       (error) => {
@@ -89,11 +89,15 @@ export class OwnerUpdateComponent implements OnInit {
   };
 
   private executeOwnerUpdate = (ownerFormValue) => {
-    this.owner.name = ownerFormValue.name;
-    this.owner.dateOfBirth = ownerFormValue.dateOfBirth;
-    this.owner.address = ownerFormValue.address;
+    debugger;
+    this.owner.Name = ownerFormValue.Name;
+    this.owner.DateOfBirth = ownerFormValue.DateOfBirth;
+    this.owner.Address = ownerFormValue.Address;
 
-    let apiUrl = `api/owner/${this.owner.id}`;
+    this.owner.Accounts=[];
+
+    // let apiUrl = `api/owner/${this.owner.Id}`;
+    let apiUrl = `api/owner`;
     this.repository.update(apiUrl, this.owner).subscribe(
       (res) => {
         $('#successModal').modal();

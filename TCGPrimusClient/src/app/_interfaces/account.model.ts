@@ -1,6 +1,6 @@
 export interface Account {
-  id: string;
-  dateCreated: Date;
-  accountType: string;
-  ownerId?: string;
+  Id: string;
+  DateCreated: Date;
+  AccountType: string;
+  OwnerId?: string;
 }

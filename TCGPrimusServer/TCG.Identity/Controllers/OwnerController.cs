@@ -21,7 +21,8 @@ namespace TCG.Identity.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+
             }
         }
 
@@ -43,7 +44,8 @@ namespace TCG.Identity.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+
             }
         }
 
@@ -65,7 +67,8 @@ namespace TCG.Identity.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+
             }
         }
 
@@ -86,16 +89,18 @@ namespace TCG.Identity.Controllers
 
                 new OwnerRules().CreateOwner(owner);
 
-                return CreatedAtRoute("OwnerById", new { id = owner.Id }, owner);
+                //return CreatedAtRoute("OwnerById", new { id = owner.Id }, owner);
+
+                return Ok();
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateOwner(Guid id, [FromBody] Owner owner)
+        [HttpPut]
+        public IActionResult UpdateOwner([FromBody] Owner owner)
         {
             try
             {
@@ -110,11 +115,12 @@ namespace TCG.Identity.Controllers
                 }
                new OwnerRules().UpdateOwner(owner);
 
-                return NoContent();
+                return Ok();
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+
             }
         }
 
@@ -136,11 +142,13 @@ namespace TCG.Identity.Controllers
 
                 new OwnerRules().DeleteOwner(owner);
 
-                return NoContent();
+
+                return Ok();
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+
             }
         }
     }

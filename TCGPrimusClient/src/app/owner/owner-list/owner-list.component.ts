@@ -33,6 +33,7 @@ export class OwnerListComponent implements OnInit {
 
     this.repository.getData(apiAddress).subscribe(
       (res) => {
+        debugger;
         this.owners = res as Owner[];
       },
       (error) => {

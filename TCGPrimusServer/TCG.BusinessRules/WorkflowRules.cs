@@ -22,6 +22,9 @@ namespace TCG.BusinessRules
 
         public void CreateWorkflow(Workflow workflow)
         {
+            workflow.Activity = _dbContext.Activities.Find(workflow.Activity.Id);
+            workflow.Folder = _dbContext.Folders.Find(workflow.Folder.Id);
+            workflow.Content = _dbContext.Contents.Find(workflow.Content.Id);
 
             _dbContext.Workflows.Add(workflow);
             _dbContext.Entry(workflow).State = EntityState.Added;
@@ -32,7 +35,10 @@ namespace TCG.BusinessRules
         public void UpdateWorkflow(Workflow workflow)
         {
             var dbOwner = _dbContext.Workflows.Find(workflow.Id);
-            
+
+            dbOwner.Activity = _dbContext.Activities.Find(workflow.Activity.Id);
+            dbOwner.Folder = _dbContext.Folders.Find(workflow.Folder.Id);
+            dbOwner.Content = _dbContext.Contents.Find(workflow.Content.Id);
 
             if (_dbContext.Entry(dbOwner).State == EntityState.Detached)
                 _dbContext.Workflows.Attach(dbOwner);

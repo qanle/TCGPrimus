@@ -23,16 +23,18 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let owner of owners">
-                        <td>{{owner.name}}</td>
-                        <td>{{owner.address}}</td>
-                        <td>{{owner.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
                         <td>
-                            <button type="button" id="details" class="btn btn-light" (click)="getOwnerDetails(owner.id)">Details</button>
+                            {{owner.Name}}
                         </td>
-                        <td><button type="button" id="update" class="btn btn-success" (click)="redirectToUpdatePage(owner.id)">Update</button></td>
+                        <td>{{owner.Address}}</td>
+                        <td>{{owner.DateOfBirth | date: 'dd/MM/yyyy'}}</td>
                         <td>
-                            <button (click)="openConfirmationDialog(owner.id,owner.name)" type="button" class="btn btn-primary">Delete Confirm</button>
-                            <button type="button" id="delete" class="btn btn-danger" (click)="redirectToDeletePage(owner.id)">Delete</button>
+                            <button type="button" id="details" class="btn btn-light" (click)="getOwnerDetails(owner.Id)">Details</button>
+                        </td>
+                        <td><button type="button" id="update" class="btn btn-success" (click)="redirectToUpdatePage(owner.Id)">Update</button></td>
+                        <td>
+                            <button (click)="openConfirmationDialog(owner.Id,owner.Name)" type="button" class="btn btn-primary">Delete Confirm</button>
+                            <button type="button" id="delete" class="btn btn-danger" (click)="redirectToDeletePage(owner.Id)">Delete</button>
                         </td>
                     </tr>
                 </tbody>
