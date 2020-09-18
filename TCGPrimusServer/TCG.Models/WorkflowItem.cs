@@ -15,7 +15,7 @@ namespace TCG.Models
         public string ActivitySettings { get; set; }
 
         public virtual Workflow Workflow { get; set; }
-        public virtual Content Content { get; set; }
+        public virtual Folder Folder { get; set; }
         public virtual Activity Activity { get; set; }
     }
 }

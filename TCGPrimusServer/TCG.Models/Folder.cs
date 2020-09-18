@@ -5,8 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TCG.Models
 {
-    [Table("content")]
-    public class Content
+    [Table("folder")]
+    public class Folder
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -18,7 +18,7 @@ namespace TCG.Models
 
         //public int FolderId { get; set; }
         [Required]
-        public virtual Workflow Folder { get; set; }
+        public virtual Workflow Workflow { get; set; }
         public virtual List<WorkflowItem> WorkFlows { get; set; }
     }
 }

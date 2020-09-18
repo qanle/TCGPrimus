@@ -297,26 +297,26 @@ namespace TCG.Models.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("TCG.Models.Content", b =>
+            modelBuilder.Entity("TCG.Models.Folder", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("FolderId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
+                    b.Property<int>("WorkflowId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("FolderId");
+                    b.HasIndex("WorkflowId");
 
-                    b.ToTable("content");
+                    b.ToTable("folder");
                 });
 
             modelBuilder.Entity("TCG.Models.Owner", b =>
@@ -403,7 +403,7 @@ namespace TCG.Models.Migrations
                     b.Property<string>("ActivitySettings")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ContentId")
+                    b.Property<int?>("FolderId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -418,7 +418,7 @@ namespace TCG.Models.Migrations
 
                     b.HasIndex("ActivityId");
 
-                    b.HasIndex("ContentId");
+                    b.HasIndex("FolderId");
 
                     b.HasIndex("WorkflowId");
 
@@ -494,11 +494,11 @@ namespace TCG.Models.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TCG.Models.Content", b =>
+            modelBuilder.Entity("TCG.Models.Folder", b =>
                 {
-                    b.HasOne("TCG.Models.Workflow", "Folder")
-                        .WithMany("Contents")
-                        .HasForeignKey("FolderId")
+                    b.HasOne("TCG.Models.Workflow", "Workflow")
+                        .WithMany("Folders")
+                        .HasForeignKey("WorkflowId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -509,9 +509,9 @@ namespace TCG.Models.Migrations
                         .WithMany("WorkFlows")
                         .HasForeignKey("ActivityId");
 
-                    b.HasOne("TCG.Models.Content", "Content")
+                    b.HasOne("TCG.Models.Folder", "Folder")
                         .WithMany("WorkFlows")
-                        .HasForeignKey("ContentId");
+                        .HasForeignKey("FolderId");
 
                     b.HasOne("TCG.Models.Workflow", "Workflow")
                         .WithMany("WorkflowItems")

@@ -254,20 +254,20 @@ namespace TCG.Models.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "content",
+                name: "folder",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
-                    FolderId = table.Column<int>(nullable: false)
+                    WorkflowId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_content", x => x.Id);
+                    table.PrimaryKey("PK_folder", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_content_workflow_FolderId",
-                        column: x => x.FolderId,
+                        name: "FK_folder_workflow_WorkflowId",
+                        column: x => x.WorkflowId,
                         principalTable: "workflow",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -282,7 +282,7 @@ namespace TCG.Models.Migrations
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     ActivitySettings = table.Column<string>(nullable: true),
                     WorkflowId = table.Column<int>(nullable: true),
-                    ContentId = table.Column<int>(nullable: true),
+                    FolderId = table.Column<int>(nullable: true),
                     ActivityId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -295,9 +295,9 @@ namespace TCG.Models.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_workflowitem_content_ContentId",
-                        column: x => x.ContentId,
-                        principalTable: "content",
+                        name: "FK_workflowitem_folder_FolderId",
+                        column: x => x.FolderId,
+                        principalTable: "folder",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -358,9 +358,9 @@ namespace TCG.Models.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_content_FolderId",
-                table: "content",
-                column: "FolderId");
+                name: "IX_folder_WorkflowId",
+                table: "folder",
+                column: "WorkflowId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_workflowitem_ActivityId",
@@ -368,9 +368,9 @@ namespace TCG.Models.Migrations
                 column: "ActivityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_workflowitem_ContentId",
+                name: "IX_workflowitem_FolderId",
                 table: "workflowitem",
-                column: "ContentId");
+                column: "FolderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_workflowitem_WorkflowId",
@@ -420,7 +420,7 @@ namespace TCG.Models.Migrations
                 name: "activity");
 
             migrationBuilder.DropTable(
-                name: "content");
+                name: "folder");
 
             migrationBuilder.DropTable(
                 name: "workflow");

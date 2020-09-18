@@ -4,18 +4,18 @@ using TCG.BusinessRules;
 
 namespace TCG.Identity.Controllers
 {
-    [Route("api/content")]
+    [Route("api/folder")]
     [ApiController]
-    public class ContentController : ControllerBase
+    public class FolderController : ControllerBase
     {
         [HttpGet]
-        public IActionResult GetAllContents()
+        public IActionResult GetAllFolders()
         {
             try
             {
-                var contents = new ContentRules().GetAll();
+                var folders = new FolderRules().GetAll();
 
-                return Ok(contents);
+                return Ok(folders);
             }
             catch (Exception ex)
             {
@@ -23,20 +23,20 @@ namespace TCG.Identity.Controllers
             }
         }
 
-        [HttpGet("{id}", Name = "ContentById")]
-        public IActionResult GetContentById(int id)
+        [HttpGet("{id}", Name = "FolderById")]
+        public IActionResult GetFolderById(int id)
         {
             try
             {
-                var content = new ContentRules().GetById(id);
+                var folder = new FolderRules().GetById(id);
 
-                if (content == null)
+                if (folder == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    return Ok(content);
+                    return Ok(folder);
                 }
             }
             catch (Exception ex)
@@ -45,20 +45,20 @@ namespace TCG.Identity.Controllers
             }
         }
 
-        [HttpGet("{id}/folder")]
-        public IActionResult GetContentGetByFolderId(int id)
+        [HttpGet("{id}/workflow")]
+        public IActionResult GetFolderGetByWorkflowId(int id)
         {
             try
             {
-                var content = new ContentRules().GetByFolderId(id);
+                var folder = new FolderRules().GetByWorkflowId(id);
 
-                if (content == null)
+                if (folder == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    return Ok(content);
+                    return Ok(folder);
                 }
             }
             catch (Exception ex)

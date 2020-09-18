@@ -27,7 +27,7 @@ namespace TCG.Models.Authentication
         public DbSet<Owner> Owners { get; set; }
         public DbSet<Activity> Activities { get; set; }
         public DbSet<ActivityField> ActivityFields { get; set; }
-        public DbSet<Content> Contents { get; set; }
+        public DbSet<Folder> Folders { get; set; }
         public DbSet<Workflow> Workflows { get; set; }
         public DbSet<WorkflowItem> WorkflowItems { get; set; }
 

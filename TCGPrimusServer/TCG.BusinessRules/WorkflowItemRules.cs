@@ -25,7 +25,7 @@ namespace TCG.BusinessRules
         {
             workflowItem.Activity = _dbContext.Activities.Find(workflowItem.Activity.Id);
             workflowItem.Workflow = _dbContext.Workflows.Find(workflowItem.Workflow.Id);
-            workflowItem.Content = _dbContext.Contents.Find(workflowItem.Content.Id);
+            workflowItem.Folder = _dbContext.Folders.Find(workflowItem.Folder.Id);
             workflowItem.ActivitySettings = workflowItem.ActivitySettings.ToJson();
 
 
@@ -41,7 +41,7 @@ namespace TCG.BusinessRules
 
             dbWorkflowItem.Activity = _dbContext.Activities.Find(workflowItem.Activity.Id);
             dbWorkflowItem.Workflow = _dbContext.Workflows.Find(workflowItem.Workflow.Id);
-            dbWorkflowItem.Content = _dbContext.Contents.Find(workflowItem.Content.Id);
+            dbWorkflowItem.Folder = _dbContext.Folders.Find(workflowItem.Folder.Id);
 
             dbWorkflowItem.ActivitySettings = workflowItem.ActivitySettings.ToJson();
 

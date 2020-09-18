@@ -17,7 +17,7 @@ namespace TCG.Models
         public string Name { get; set; }
 
 
-        public virtual List<Content> Contents { get; set; }
+        public virtual List<Folder> Folders { get; set; }
         public virtual List<WorkflowItem> WorkflowItems { get; set; }
     }
 }

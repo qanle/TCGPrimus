@@ -2,24 +2,24 @@
 
 namespace TCG.BusinessRules.ExtendedModels
 {
-    public class ContentExtended
+    public class FolderExtended
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public WorkflowExtended Workflow { get; set; }
 
-        public ContentExtended()
+        public FolderExtended()
         {
         }
 
-        public ContentExtended(Content content)
+        public FolderExtended(Folder folder)
         {
-            Id = content.Id;
-            Name = content.Name;
+            Id = folder.Id;
+            Name = folder.Name;
             Workflow = new WorkflowExtended
             {
-                Id = content.Folder.Id,
-                Name = content.Folder.Name
+                Id = folder.Workflow.Id,
+                Name = folder.Workflow.Name
             };
         }
     }
