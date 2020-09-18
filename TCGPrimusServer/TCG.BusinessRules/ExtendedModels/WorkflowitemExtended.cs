@@ -22,6 +22,7 @@ namespace TCG.BusinessRules.ExtendedModels
 
         public WorkflowitemExtended(WorkflowItem workflow)
         {
+            if (workflow == null) return ;
             Id = workflow.Id;
             Name = workflow.Name;
             ActivitySettings = workflow.ActivitySettings.ParseAs<Dictionary<string, object>>();
