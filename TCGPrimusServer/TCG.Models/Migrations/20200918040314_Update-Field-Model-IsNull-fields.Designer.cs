@@ -10,8 +10,8 @@ using TCG.Models.Authentication;
 namespace TCG.Models.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200917093323_Initial")]
-    partial class Initial
+    [Migration("20200918040314_Update-Field-Model-IsNull-fields")]
+    partial class UpdateFieldModelIsNullfields
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -171,6 +171,8 @@ namespace TCG.Models.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("OwnerId");
+
                     b.ToTable("account");
                 });
 
@@ -182,6 +184,7 @@ namespace TCG.Models.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(250)")
                         .HasMaxLength(250);
 
@@ -197,28 +200,31 @@ namespace TCG.Models.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ActivityId")
+                    b.Property<int>("ActivityId")
                         .HasColumnType("int");
 
                     b.Property<string>("DataType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
                     b.Property<string>("Label")
+                        .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("MaxLength")
+                    b.Property<int?>("MaxLength")
                         .HasColumnType("int");
 
-                    b.Property<int>("MinLength")
+                    b.Property<int?>("MinLength")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<bool>("Required")
+                    b.Property<bool?>("Required")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
@@ -300,7 +306,7 @@ namespace TCG.Models.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("FolderId")
+                    b.Property<int>("FolderId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -326,9 +332,6 @@ namespace TCG.Models.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
-
-                    b.Property<int>("ParentId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -389,7 +392,7 @@ namespace TCG.Models.Migrations
                     b.ToTable("user");
                 });
 
-            modelBuilder.Entity("TCG.Models.WorkFlow", b =>
+            modelBuilder.Entity("TCG.Models.Workflow", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -475,21 +478,34 @@ namespace TCG.Models.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TCG.Models.Account", b =>
+                {
+                    b.HasOne("TCG.Models.Owner", "Owner")
+                        .WithMany("Accounts")
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("TCG.Models.ActivityField", b =>
                 {
                     b.HasOne("TCG.Models.Activity", "Activity")
                         .WithMany("ActivityFields")
-                        .HasForeignKey("ActivityId");
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TCG.Models.Content", b =>
                 {
                     b.HasOne("TCG.Models.Folder", "Folder")
                         .WithMany("Contents")
-                        .HasForeignKey("FolderId");
+                        .HasForeignKey("FolderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("TCG.Models.WorkFlow", b =>
+            modelBuilder.Entity("TCG.Models.Workflow", b =>
                 {
                     b.HasOne("TCG.Models.Activity", "Activity")
                         .WithMany("WorkFlows")

@@ -8,26 +8,12 @@ namespace TCG.Models.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "account",
-                columns: table => new
-                {
-                    AccountId = table.Column<Guid>(nullable: false),
-                    DateCreated = table.Column<DateTime>(nullable: false),
-                    AccountType = table.Column<string>(nullable: false),
-                    OwnerId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_account", x => x.AccountId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "activity",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 250, nullable: true)
+                    Name = table.Column<string>(maxLength: 250, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -79,8 +65,7 @@ namespace TCG.Models.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 50, nullable: false),
-                    ParentId = table.Column<int>(nullable: false)
+                    Name = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -123,13 +108,13 @@ namespace TCG.Models.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 50, nullable: true),
-                    Label = table.Column<string>(maxLength: 50, nullable: true),
-                    DataType = table.Column<string>(maxLength: 50, nullable: true),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    Label = table.Column<string>(maxLength: 50, nullable: false),
+                    DataType = table.Column<string>(maxLength: 50, nullable: false),
                     MaxLength = table.Column<int>(nullable: false),
                     MinLength = table.Column<int>(nullable: false),
                     Required = table.Column<bool>(type: "bit", nullable: false),
-                    ActivityId = table.Column<int>(nullable: true)
+                    ActivityId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -139,7 +124,7 @@ namespace TCG.Models.Migrations
                         column: x => x.ActivityId,
                         principalTable: "activity",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -255,7 +240,7 @@ namespace TCG.Models.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
-                    FolderId = table.Column<int>(nullable: true)
+                    FolderId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -265,7 +250,27 @@ namespace TCG.Models.Migrations
                         column: x => x.FolderId,
                         principalTable: "folder",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "account",
+                columns: table => new
+                {
+                    AccountId = table.Column<Guid>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: false),
+                    AccountType = table.Column<string>(nullable: false),
+                    OwnerId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_account", x => x.AccountId);
+                    table.ForeignKey(
+                        name: "FK_account_owner_OwnerId",
+                        column: x => x.OwnerId,
+                        principalTable: "owner",
+                        principalColumn: "OwnerId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -302,6 +307,11 @@ namespace TCG.Models.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_account_OwnerId",
+                table: "account",
+                column: "OwnerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_activityfield_ActivityId",
@@ -392,13 +402,13 @@ namespace TCG.Models.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "owner");
-
-            migrationBuilder.DropTable(
                 name: "user");
 
             migrationBuilder.DropTable(
                 name: "workflow");
+
+            migrationBuilder.DropTable(
+                name: "owner");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

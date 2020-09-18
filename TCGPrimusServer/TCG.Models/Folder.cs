@@ -16,9 +16,8 @@ namespace TCG.Models
 
         public string Name { get; set; }
 
-        public int ParentId { get; set; }
 
         public virtual List<Content> Contents { get; set; }
-        public virtual List<WorkFlow> WorkFlows { get; set; }
+        public virtual List<Workflow> WorkFlows { get; set; }
     }
 }

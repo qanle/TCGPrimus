@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace TCG.Models
 {
     [Table("workflow")]
-    public class WorkFlow
+    public class Workflow
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -13,15 +13,6 @@ namespace TCG.Models
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-        //[Required]
-        //public int FolderId { get; set; }
-        //[Required]
-        //public int ContentId { get; set; }
-        //[Required]
-        //public int ActivityId { get; set; }
-        /// <summary>
-        /// Data of Activity Fields setup
-        /// </summary>
         public string ActivitySettings { get; set; }
 
         public virtual Folder Folder { get; set; }

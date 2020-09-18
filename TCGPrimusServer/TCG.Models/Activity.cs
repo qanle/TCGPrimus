@@ -12,11 +12,11 @@ namespace TCG.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
+        [Required]
         [StringLength(250)]
         public string Name { get; set; }
 
         public virtual List<ActivityField> ActivityFields { get; set; }
-        public virtual List<WorkFlow> WorkFlows { get; set; }
+        public virtual List<Workflow> WorkFlows { get; set; }
     }
 }

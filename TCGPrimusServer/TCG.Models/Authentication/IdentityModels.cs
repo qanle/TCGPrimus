@@ -32,7 +32,7 @@ namespace TCG.Models.Authentication
         public DbSet<ActivityField> ActivityFields { get; set; }
         public DbSet<Content> Contents { get; set; }
         public DbSet<Folder> Folders { get; set; }
-        public DbSet<WorkFlow> WorkFlows { get; set; }
+        public DbSet<Workflow> Workflows { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
