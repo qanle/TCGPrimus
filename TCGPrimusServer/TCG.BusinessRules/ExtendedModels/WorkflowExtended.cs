@@ -1,4 +1,6 @@
-﻿using TCG.Models;
+﻿using System.Collections.Generic;
+using TCG.BusinessRules.Helper;
+using TCG.Models;
 
 namespace TCG.BusinessRules.ExtendedModels
 {
@@ -6,7 +8,9 @@ namespace TCG.BusinessRules.ExtendedModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string ActivitySettings { get; set; }
+        //public string ActivitySettings { get; set; }
+
+        public Dictionary<string, object> ActivitySettings { get; set; }
 
         public virtual FolderExtended Folder { get; set; }
         public virtual ContentExtended Content { get; set; }
@@ -20,7 +24,7 @@ namespace TCG.BusinessRules.ExtendedModels
         {
             Id = workflow.Id;
             Name = workflow.Name;
-            ActivitySettings = workflow.ActivitySettings;
+            ActivitySettings = workflow.ActivitySettings.ParseAs<Dictionary<string, object>>();
             Folder = new FolderExtended { Id = workflow.Folder.Id, Name = workflow.Folder.Name };
             Content = new ContentExtended { Id = workflow.Content.Id, Name = workflow.Content.Name };
             Activity = new ActivityExtended { Id = workflow.Activity.Id, Name = workflow.Activity.Name };

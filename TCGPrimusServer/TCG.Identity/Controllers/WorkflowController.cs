@@ -73,8 +73,8 @@ namespace TCG.Identity.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateWorkflow(Guid id, [FromBody] Workflow workflow)
+        [HttpPut]
+        public IActionResult UpdateWorkflow([FromBody] Workflow workflow)
         {
             try
             {
