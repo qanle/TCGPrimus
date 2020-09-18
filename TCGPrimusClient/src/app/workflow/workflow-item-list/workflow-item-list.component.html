@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="offset-10 col-md-2">
+        <br>
+        <a class="btn btn-info" [routerLink]="['/workflow/create-item']">Create Workflow item</a>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Folder</th>
+                        <th>Workflow</th>
+                        <th>Activity</th>
+                        <th>Setting</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let wfItem of workflowItems">
+                        <td>
+                            {{wfItem.Name}}
+                        </td>
+                        <td>{{wfItem.Folder.Name}}</td>
+                        <td>{{wfItem.Workflow.Name}}</td>
+                        <td>{{wfItem.Activity.Name}}</td>
+                        <td>
+                            <button type="button" id="details" class="btn btn-light"
+                                (click)="activitySetting(wfItem.Id,wfItem.ActivitySettings)">Details</button>
+                        </td>
+                        <td><button type="button" id="update" class="btn btn-success"
+                                (click)="Update(wfItem.Id)">Update</button></td>
+                        <td>
+                            <button (click)="confirmationDeleteWorkflowItem(wfItem.Id,wfItem.Name)" type="button"
+                                class="btn btn-danger">Delete Confirm</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-success-modal [modalHeaderText]="'Success message'" [modalBodyText]="'Action completed successfully'"
+    [okButtonText]="'OK'" (redirectOnOK)="redirectToList()"></app-success-modal>
+
+<app-error-modal [modalHeaderText]="'Error message'" [modalBodyText]="errorMessage" [okButtonText]="'OK'">
+</app-error-modal>

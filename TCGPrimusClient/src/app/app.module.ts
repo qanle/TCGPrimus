@@ -1,3 +1,4 @@
+import { Workflow } from './_interfaces/workflow.model';
 import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -37,6 +38,11 @@ import { ConfirmationDialogService } from './shared/modals/confirmation-dialog/c
         path: 'owner',
         loadChildren: () =>
           import('./owner/owner.module').then((m) => m.OwnerModule),
+      },
+      {
+        path: 'workflow',
+        loadChildren: () =>
+          import('./workflow/workflow.module').then((m) => m.WorkflowModule),
       },
       { path: '404', component: NotFoundComponent },
       { path: '500', component: InternalServerComponent },
