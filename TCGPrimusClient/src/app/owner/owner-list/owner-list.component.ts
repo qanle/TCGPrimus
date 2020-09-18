@@ -33,7 +33,6 @@ export class OwnerListComponent implements OnInit {
 
     this.repository.getData(apiAddress).subscribe(
       (res) => {
-        debugger;
         this.owners = res as Owner[];
       },
       (error) => {
@@ -76,7 +75,6 @@ export class OwnerListComponent implements OnInit {
 
   private deleteOwner = (id) => {
     
-    debugger;
     const deleteUrl: string = `api/owner/${id}`;
     this.repository.delete(deleteUrl).subscribe(
       (res) => {

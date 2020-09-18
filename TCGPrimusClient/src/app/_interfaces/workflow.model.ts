@@ -1,4 +1,4 @@
-export interface Folder {
+export interface Workflow {
   Id: number;
   Name: string;
 }
