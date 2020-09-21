@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlAddress: 'http://45.124.95.214:5000',
+  urlAddress: 'http://192.168.1.137:5000',
 };
 
 /*

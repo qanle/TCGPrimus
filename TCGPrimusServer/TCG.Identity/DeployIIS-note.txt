@@ -1,4 +1,5 @@
-﻿Update web.config file, include modules>remove name="WebDAVModule" in the <system.webServer>
+﻿1. error not accept ver (PUT, DELETE)
+Update web.config file, include modules>remove name="WebDAVModule" in the <system.webServer>
 
 <system.webServer>
 		<modules runAllManagedModulesForAllRequests="false">
@@ -6,3 +7,9 @@
 		</modules>
 		...
 </system.webServer>
+
+2. HTTP Error 500.31 - ANCM Failed to Find Native Dependencies
+Goto https://dotnet.microsoft.com/download/dotnet-core/3.1
+Download and install:
+Build apps - SDK/SDK 3.1.402
+ASP.NET Core Runtime 3.1.8
