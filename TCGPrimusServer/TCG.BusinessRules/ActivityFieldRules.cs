@@ -21,7 +21,7 @@ namespace TCG.BusinessRules
 
         public IEnumerable<ActivityFieldExtended> GetByActivityId(int activityId)
         {
-            var fields = _dbContext.ActivityFields.Where(a => a.Id == activityId);
+            var fields = _dbContext.ActivityFields.Where(a => a.Activity.Id == activityId);
             return fields.Select(c => new ActivityFieldExtended(c));
         }
 
