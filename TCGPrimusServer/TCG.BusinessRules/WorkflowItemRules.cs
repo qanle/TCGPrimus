@@ -21,28 +21,31 @@ namespace TCG.BusinessRules
         }
 
 
-        public void CreateWorkflowItem(WorkflowItem workflowItem)
+        public void CreateWorkflowItem(WorkflowitemExtended workflowItem)
         {
-            workflowItem.Activity = _dbContext.Activities.Find(workflowItem.Activity.Id);
-            workflowItem.Workflow = _dbContext.Workflows.Find(workflowItem.Workflow.Id);
-            workflowItem.Folder = _dbContext.Folders.Find(workflowItem.Folder.Id);
-            workflowItem.ActivitySettings = workflowItem.ActivitySettings.ToJson();
+            var wfItem = new WorkflowItem
+            {
+                Name = workflowItem.Name,
+                Activity = _dbContext.Activities.Find(workflowItem.Activity.Id),
+                Workflow = _dbContext.Workflows.Find(workflowItem.Workflow.Id),
+                Folder = _dbContext.Folders.Find(workflowItem.Folder.Id),
+                ActivitySettings = workflowItem.ActivitySettings.ToJson()
+            };
 
-
-            _dbContext.WorkflowItems.Add(workflowItem);
-            _dbContext.Entry(workflowItem).State = EntityState.Added;
+            _dbContext.WorkflowItems.Add(wfItem);
+            _dbContext.Entry(wfItem).State = EntityState.Added;
             _dbContext.SaveChanges();
         }
 
 
-        public void UpdateWorkflowItem(WorkflowItem workflowItem)
+        public void UpdateWorkflowItem(WorkflowitemExtended workflowItem)
         {
             var dbWorkflowItem = _dbContext.WorkflowItems.Find(workflowItem.Id);
 
             dbWorkflowItem.Activity = _dbContext.Activities.Find(workflowItem.Activity.Id);
             dbWorkflowItem.Workflow = _dbContext.Workflows.Find(workflowItem.Workflow.Id);
             dbWorkflowItem.Folder = _dbContext.Folders.Find(workflowItem.Folder.Id);
-
+            dbWorkflowItem.Name = workflowItem.Name;
             dbWorkflowItem.ActivitySettings = workflowItem.ActivitySettings.ToJson();
 
             if (_dbContext.Entry(dbWorkflowItem).State == EntityState.Detached)

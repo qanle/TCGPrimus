@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using TCG.BusinessRules;
+using TCG.BusinessRules.ExtendedModels;
 using TCG.Models;
 
 namespace TCG.Identity.Controllers
@@ -48,7 +49,7 @@ namespace TCG.Identity.Controllers
 
 
         [HttpPost]
-        public IActionResult CreateWorkflowItem([FromBody] WorkflowItem workflowItem)
+        public IActionResult CreateWorkflowItem([FromBody] WorkflowitemExtended workflowItem)
         {
             try
             {
