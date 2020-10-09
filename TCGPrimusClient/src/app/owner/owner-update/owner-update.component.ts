@@ -13,16 +13,17 @@ import { DatePipe } from '@angular/common';
 })
 export class OwnerUpdateComponent implements OnInit {
   public errorMessage: string = '';
-  public owner: Owner;
-  public ownerForm: FormGroup;
+  public  owner: Owner;
+  public ownerForm:    FormGroup;
 
   constructor(
-    private repository: RepositoryService,
-    private errorHandler: ErrorHandlerService,
-    private router: Router,
-    private activeRoute: ActivatedRoute,
-    private datePipe: DatePipe
-  ) {}
+    private repository : RepositoryService,
+private errorHandler:   ErrorHandlerService,
+private router: Router,
+private activeRoute: ActivatedRoute,
+private datePipe: DatePipe
+) {}
+
   ngOnInit() {
     this.ownerForm = new FormGroup({
       Name: new FormControl('', [

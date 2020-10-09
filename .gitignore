@@ -102,6 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+/PADaMClient/node_modules
 /TCGPrimusServer/TCGPrimusServer/TCGPrimus.Contracts/bin
 /TCGPrimusServer/TCGPrimusServer/TCGPrimus.Contracts/obj
 /TCGPrimusServer/TCGPrimusServer/TCGPrimus.Entities/bin
