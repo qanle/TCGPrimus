@@ -24,7 +24,7 @@ import { VersionService } from './service/versionservice';
 import { AppConfigService } from './service/appconfigservice';
 import { ProductService } from './service/productservice';
 
-import { AppNewsComponent } from './app.news.component';
+//import { AppNewsComponent } from './app.news.component';
 import { AppTopBarComponent } from './app.topbar.component';
 import { AppMenuComponent } from './app.menu.component';
 import { AppConfigComponent } from './app.config.component';
@@ -35,7 +35,7 @@ import { AppInputStyleSwitchModule } from './app.inputstyleswitch.component';
     declarations: [
         AppComponent,
         HomeComponent,
-        AppNewsComponent,
+        //AppNewsComponent,
         AppTopBarComponent,
         AppMenuComponent,
         AppConfigComponent,
