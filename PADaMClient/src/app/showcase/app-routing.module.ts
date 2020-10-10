@@ -11,6 +11,10 @@ import { HomeComponent } from './components/home/home.component';
         RouterModule.forRoot([
             {path: '', component: HomeComponent},
             {
+                path: 'login',
+                loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
+            },
+            {
                 path: 'setup', 
                 loadChildren: () => import('./components/setup/setup.module').then(m => m.SetupModule),
                 canActivate: [AuthGuard]
@@ -19,6 +23,12 @@ import { HomeComponent } from './components/home/home.component';
                 path: 'theming', loadChildren: () => import('./components/theming/theming.module').then(m => m.ThemingModule),
                 canActivate: [AuthGuard]
             },
+            {
+                path: 'tcg',
+                loadChildren: () => import('./components/tcg/tcg.module').then(m => m.TcgModule),
+                canActivate: [AuthGuard]
+            },
+            
             {path: 'icons', loadChildren: () => import('./components/icons/icons.module').then(m => m.IconsModule)},
             {path: 'accordion', loadChildren: () => import('./components/accordion/accordiondemo.module').then(m => m.AccordionDemoModule)},
             {path: 'autocomplete', loadChildren: () => import('./components/autocomplete/autocompletedemo.module').then(m => m.AutoCompleteDemoModule)},
@@ -103,7 +113,6 @@ import { HomeComponent } from './components/home/home.component';
             {path: 'treetable', loadChildren: () => import('./components/treetable/treetabledemo.module').then(m => m.TreeTableDemoModule)},
             {path: 'tristatecheckbox', loadChildren: () => import('./components/tristatecheckbox/tristatecheckboxdemo.module').then(m => m.TriStateCheckboxDemoModule)},
             {path: 'virtualscroller', loadChildren: () => import('./components/virtualscroller/virtualscrollerdemo.module').then(m => m.VirtualScrollerDemoModule)},
-            {path: 'tcg', loadChildren: () => import('./components/tcg/tcg.module').then(m => m.TcgModule)}
 
         ], {scrollPositionRestoration: 'enabled'})    
     ],

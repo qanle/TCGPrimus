@@ -32,6 +32,7 @@ import { AppMenuComponent } from './app.menu.component';
 import { AppConfigComponent } from './app.config.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppInputStyleSwitchModule } from './app.inputstyleswitch.component';
+//import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { AppInputStyleSwitchModule } from './app.inputstyleswitch.component';
         AppTopBarComponent,
         AppMenuComponent,
         AppConfigComponent,
-        AppFooterComponent
+        AppFooterComponent,
+        //LoginComponent
     ],
     imports: [
         FormsModule,
