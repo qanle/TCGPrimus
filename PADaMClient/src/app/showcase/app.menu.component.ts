@@ -15,7 +15,7 @@ declare let gtag: Function;
     template: `
         <div class="layout-sidebar" [ngClass]="{'active': active}">
             <div class="layout-menu">
-                <div class="menu-category">General</div>
+                <div class="menu-category">PADaM</div>
                 <div class="menu-items">
                 <a [routerLink]=" ['/tcg']" routerLinkActive="router-link-exact-active">TCG</a>
                     <a [routerLink]=" ['/setup']" routerLinkActive="router-link-exact-active">Get Started</a>

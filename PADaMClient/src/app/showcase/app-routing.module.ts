@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+//import { LoginComponent } from './components/login/login.component';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
@@ -6,27 +7,39 @@ import { AuthGuard } from 'src/app/core/gaurds/auth.gaurd';
 
 import { HomeComponent } from './components/home/home.component';
 
+
 @NgModule({
     imports: [
         RouterModule.forRoot([
-            {path: '', component: HomeComponent},
+            // {
+            //     path: '',
+            //     redirectTo: 'login',
+            //     //component: LoginComponent,
+            //     pathMatch: 'full'
+            // },
             {
                 path: 'login',
                 loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
             },
             {
+                path: '', 
+                component: HomeComponent,
+                //canActivate: [AuthGuard]
+            },
+            
+            {
                 path: 'setup', 
                 loadChildren: () => import('./components/setup/setup.module').then(m => m.SetupModule),
-                canActivate: [AuthGuard]
+                //canActivate: [AuthGuard]
             },                
             {                
                 path: 'theming', loadChildren: () => import('./components/theming/theming.module').then(m => m.ThemingModule),
-                canActivate: [AuthGuard]
+                //canActivate: [AuthGuard]
             },
             {
                 path: 'tcg',
                 loadChildren: () => import('./components/tcg/tcg.module').then(m => m.TcgModule),
-                canActivate: [AuthGuard]
+                //canActivate: [AuthGuard]
             },
             
             {path: 'icons', loadChildren: () => import('./components/icons/icons.module').then(m => m.IconsModule)},

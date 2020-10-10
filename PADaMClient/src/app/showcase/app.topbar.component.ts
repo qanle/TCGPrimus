@@ -5,6 +5,9 @@ import { AppConfigService } from './service/appconfigservice';
 import { VersionService } from './service/versionservice';
 import { AppConfig } from './domain/appconfig';
 import { Subscription } from 'rxjs';
+import { RouteStateService } from 'src/app/core/services/route-state.service';
+import { SessionService } from 'src/app/core/services/session.service';
+import { UserContextService } from 'src/app/core/services/user-context.service';
 
 @Component({
     selector: 'app-topbar',
@@ -18,13 +21,13 @@ import { Subscription } from 'rxjs';
             </a>
             
             <ul #topbarMenu class="topbar-menu">
-            <li><a [routerLink]="['#']"><i class="pi pi-fw pi-cog"></i><span>Configurator</span></a></li>
+            <li><a [routerLink]=" ['/tcg']"><i class="pi pi-fw pi-cog"></i><span>Configurator</span></a></li>
             <li><a [routerLink]="['#']"><i class="pi pi-fw pi-share-alt"></i><span>x.Tralyze</span></a></li>
             <li><a [routerLink]="['#']"><i class="pi pi-fw pi-sliders-h"></i><span>x.Rulyzer</span></a></li>
             <li><a [routerLink]="['#']"><i class="pi pi-fw pi-file"></i><span>Masterdata</span></a></li>
             <li><a [routerLink]="['#']"><i class="pi pi-fw pi-chart-bar"></i><span>Statistics</span></a></li>
             <li><a [routerLink]="['#']"><i class="pi pi-fw pi-tags"></i><span>Activities</span></a></li>
-            <li><a [routerLink]="['#']"><i class="pi pi-fw pi-sign-out"></i></a></li>
+            <li (click)="logout()"><a><i class="pi pi-fw pi-sign-out"></i></a></li>
             </ul>
         </div>
     `,
@@ -95,7 +98,14 @@ export class AppTopBarComponent implements OnInit, OnDestroy {
 
     versions: any[];
 
-    constructor(private router: Router, private versionService: VersionService, private configService: AppConfigService) {}
+    constructor(
+        private router: Router, 
+        private versionService: VersionService, 
+        private configService: AppConfigService,
+        private routeStateService: RouteStateService,
+        private sessionService: SessionService,
+        private userContextService: UserContextService
+        ) {}
 
     ngOnInit() {
         this.config = this.configService.config;
@@ -109,6 +119,13 @@ export class AppTopBarComponent implements OnInit, OnDestroy {
         });
     }
 
+  logout() {
+    //this.userIdle.stopWatching();
+    this.routeStateService.removeAll();
+    this.userContextService.logout();
+    this.sessionService.removeItem('active-menu');
+    this.router.navigate(['/login']);
+  }
     onMenuButtonClick(event: Event) {
         this.menuButtonClick.emit();
         event.preventDefault();

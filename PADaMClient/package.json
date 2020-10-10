@@ -72,6 +72,9 @@
     "zone.js": "~0.10.2"
   },
   "dependencies": {
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
+    "angular-user-idle": "^2.2.4",
     "tslib": "^2.0.0"
   }
 }
