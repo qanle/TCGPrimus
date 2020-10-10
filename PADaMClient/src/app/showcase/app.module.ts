@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from 'src/app/core/gaurds/auth.gaurd';
+import { MessageService } from 'primeng/api';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -54,6 +56,8 @@ import { AppInputStyleSwitchModule } from './app.inputstyleswitch.component';
         AppInputStyleSwitchModule
     ],
     providers: [
+        MessageService,
+    AuthGuard,
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         CarService,CountryService,EventService,NodeService,IconService,CustomerService,PhotoService,VersionService,AppConfigService, ProductService
     ],

@@ -1,13 +1,24 @@
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+
+import { AuthGuard } from 'src/app/core/gaurds/auth.gaurd';
+
 import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
             {path: '', component: HomeComponent},
-            {path: 'setup', loadChildren: () => import('./components/setup/setup.module').then(m => m.SetupModule)},
-            {path: 'theming', loadChildren: () => import('./components/theming/theming.module').then(m => m.ThemingModule)},
+            {
+                path: 'setup', 
+                loadChildren: () => import('./components/setup/setup.module').then(m => m.SetupModule),
+                canActivate: [AuthGuard]
+            },                
+            {                
+                path: 'theming', loadChildren: () => import('./components/theming/theming.module').then(m => m.ThemingModule),
+                canActivate: [AuthGuard]
+            },
             {path: 'icons', loadChildren: () => import('./components/icons/icons.module').then(m => m.IconsModule)},
             {path: 'accordion', loadChildren: () => import('./components/accordion/accordiondemo.module').then(m => m.AccordionDemoModule)},
             {path: 'autocomplete', loadChildren: () => import('./components/autocomplete/autocompletedemo.module').then(m => m.AutoCompleteDemoModule)},
