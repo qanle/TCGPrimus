@@ -15,11 +15,11 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import {ToastModule} from 'primeng/toast';
 
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
-import { ProductListDemo } from './designtimetlistdemo';
+import { ConfigListDemo } from './designtimetlistdemo';
 import { DesingTimesService } from './designtimesservice';
 
 @NgModule({
-  declarations: [TcgComponent, ProductListDemo],
+  declarations: [TcgComponent, ConfigListDemo],
   imports: [
     CommonModule,
     AppCodeModule,
@@ -36,7 +36,7 @@ import { DesingTimesService } from './designtimesservice';
     TcgRoutingModule
   ],
 	entryComponents: [
-		ProductListDemo
+		ConfigListDemo
 	],
   providers: [DesingTimesService]
 })

@@ -13,18 +13,18 @@ import {DynamicDialogConfig} from 'primeng/dynamicdialog';
                     <th style="width:4em"></th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-product>
+            <ng-template pTemplate="body" let-config>
                 <tr>
-                    <td>{{product.name}}</td>
+                    <td>{{config.name}}</td>
                     <td>
-                        <button type="button" pButton icon="pi pi-search" (click)="selectProduct(product)"></button>
+                        <button type="button" pButton icon="pi pi-search" (click)="selectConfig(config)"></button>
                     </td>
                 </tr>
             </ng-template>
         </p-table>
     `
 })
-export class ProductListDemo {
+export class ConfigListDemo {
 
     designtimes: DesignTime[];
             
@@ -34,7 +34,7 @@ export class ProductListDemo {
         this.desingTimesService.getDesignTime().then(designtimes => this.designtimes = designtimes);
     }
 
-    selectProduct(designtime: DesignTime) {
+    selectConfig(designtime: DesignTime) {
         this.ref.close(designtime);
     }
 }

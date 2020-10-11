@@ -21,8 +21,8 @@
             badge="8"
             badgeClass="p-badge-danger"
         ></p-button>
-        <hr />
-        <div class="card">
+        
+        <div *ngIf="customers" class="card">
             <p-table
                 #dt
                 [value]="customers"

@@ -5,12 +5,11 @@ import { CustomerService } from "../../service/customerservice";
 import { Table } from "primeng/table";
 
 import { MessageService } from "primeng/api";
-import { ProductListDemo } from "./designtimetlistdemo";
+import { ConfigListDemo } from "./designtimetlistdemo";
 import { DesignTime } from "./designtimes";
 
-import {DialogService} from 'primeng/dynamicdialog';
-import {DynamicDialogRef} from 'primeng/dynamicdialog';
-
+import { DialogService } from "primeng/dynamicdialog";
+import { DynamicDialogRef } from "primeng/dynamicdialog";
 
 @Component({
     //selector: 'tcg',
@@ -37,7 +36,7 @@ export class TcgComponent implements OnInit {
 
     ref: DynamicDialogRef;
     show() {
-        this.ref = this.dialogService.open(ProductListDemo, {
+        this.ref = this.dialogService.open(ConfigListDemo, {
             header: "Choose a Config",
             width: "70%",
             contentStyle: { "max-height": "500px", overflow: "auto" },
@@ -51,21 +50,23 @@ export class TcgComponent implements OnInit {
                     summary: "Config Selected",
                     detail: designtime.name,
                 });
+                this.showExtractors();
             }
         });
     }
+
+    ngOnInit() {}
 
     ngOnDestroy() {
         if (this.ref) {
             this.ref.close();
         }
     }
-    ngOnInit() {
+    showExtractors() {
         this.customerService.getCustomersLarge().then((customers) => {
             this.customers = customers;
             this.loading = false;
         });
-
         this.representatives = [
             { name: "Amy Elsner", image: "amyelsner.png" },
             { name: "Anna Fali", image: "annafali.png" },
