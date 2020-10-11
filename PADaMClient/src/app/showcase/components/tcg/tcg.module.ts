@@ -12,6 +12,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ProgressBarModule } from 'primeng/progressbar';
+import {ToastModule} from 'primeng/toast';
+
 
 @NgModule({
   declarations: [TcgComponent],
@@ -26,6 +28,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
     ProgressBarModule,
     InputTextModule,
     InputNumberModule,
+    ToastModule,
     TcgRoutingModule
   ]
 })

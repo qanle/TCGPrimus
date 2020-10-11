@@ -2,11 +2,11 @@
             'p-input-filled': config.inputStyle === 'filled', 'p-ripple-disabled': !config.ripple}">
     <!-- <app-news *ngIf="newsActive" (onNewsHide)="hideNews()"></app-news> -->
     <app-topbar (menuButtonClick)="onMenuButtonClick()"></app-topbar>
-    <app-menu [active]="menuActive"></app-menu>
+    <!-- <app-menu [active]="menuActive"></app-menu> -->
     <!-- <app-config></app-config> -->
     <!-- <div class="layout-mask" [ngClass]="{'layout-mask-active': menuActive}" (click)="onMaskClick()"></div> -->
 
-    <div class="layout-content">
+    <div class="layout-content" style="margin-left: 0px !important;">
         <router-outlet></router-outlet>
         <app-footer></app-footer>
     </div>

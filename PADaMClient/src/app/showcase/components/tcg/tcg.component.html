@@ -9,9 +9,11 @@
     </div>
 </div>
 <div class="content-section implementation">
+    <p-toast></p-toast>
+
     <div class="content-section implementation">
         <h5>Get configs from</h5>
-        <p-button label="Design-Time"></p-button>
+        <p-button (click)="show()" label="Design-Time"></p-button>
         <p-button
             label="Run-Time"
             icon="pi pi-users"
