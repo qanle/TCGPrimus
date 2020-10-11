@@ -21,7 +21,7 @@ export class TcgComponent implements OnInit {
     @ViewChild("dt") table: Table;
 
     constructor(private customerService: CustomerService) {}
-
+   
     ngOnInit() {
         this.customerService.getCustomersLarge().then((customers) => {
             this.customers = customers;
