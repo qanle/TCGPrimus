@@ -15,8 +15,8 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import {ToastModule} from 'primeng/toast';
 
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
-import { ProductListDemo } from './productlistdemo';
-import { ProductService } from './productservice';
+import { ProductListDemo } from './designtimetlistdemo';
+import { DesingTimesService } from './designtimesservice';
 
 @NgModule({
   declarations: [TcgComponent, ProductListDemo],
@@ -38,6 +38,6 @@ import { ProductService } from './productservice';
 	entryComponents: [
 		ProductListDemo
 	],
-  providers: [ProductService]
+  providers: [DesingTimesService]
 })
 export class TcgModule { }

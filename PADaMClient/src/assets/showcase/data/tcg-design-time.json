@@ -1,0 +1,12 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"name": "IMIP_Client / IMIP_Projects / IMIP_Process_DPSI / DPSConfig"
+		},
+		{
+			"id": "1001",
+			"name": "IMIP_Client / IMIP_Projects / IMIP_Process_DPSI / DPSConfigIncluded"
+		}
+	]
+}

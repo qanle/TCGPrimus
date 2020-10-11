@@ -5,8 +5,8 @@ import { CustomerService } from "../../service/customerservice";
 import { Table } from "primeng/table";
 
 import { MessageService } from "primeng/api";
-import { ProductListDemo } from "./productlistdemo";
-import { Product } from "./product";
+import { ProductListDemo } from "./designtimetlistdemo";
+import { DesignTime } from "./designtimes";
 
 import {DialogService} from 'primeng/dynamicdialog';
 import {DynamicDialogRef} from 'primeng/dynamicdialog';
@@ -38,18 +38,18 @@ export class TcgComponent implements OnInit {
     ref: DynamicDialogRef;
     show() {
         this.ref = this.dialogService.open(ProductListDemo, {
-            header: "Choose a Product",
+            header: "Choose a Config",
             width: "70%",
             contentStyle: { "max-height": "500px", overflow: "auto" },
             baseZIndex: 10000,
         });
 
-        this.ref.onClose.subscribe((product: Product) => {
-            if (product) {
+        this.ref.onClose.subscribe((designtime: DesignTime) => {
+            if (designtime) {
                 this.messageService.add({
                     severity: "info",
-                    summary: "Product Selected",
-                    detail: product.name,
+                    summary: "Config Selected",
+                    detail: designtime.name,
                 });
             }
         });
