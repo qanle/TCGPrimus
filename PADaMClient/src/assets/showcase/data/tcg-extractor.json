@@ -1,0 +1,724 @@
+{
+	"data": [
+		{
+			"Position": 1,
+			"Parent": "X",
+			"Name": "ExcludeAGB",
+			"Type": "Exclude Pages from Extraction"
+		},
+		{
+			"Position": 2,
+			"Parent": "",
+			"Name": "TableAExtractor",
+			"Type": "Line Item (Table) Extractor"
+		},
+		{
+			"Position": 3,
+			"Parent": "",
+			"Name": "TabAColumn1Extractor",
+			"Type": "Column Header/Content (Table) Extractor"
+		},
+		{
+			"Position": 4,
+			"Parent": "",
+			"Name": "TabAColumn2Extractor",
+			"Type": "Column Header/Content (Table) Extractor"
+		},
+		{
+			"Position": 5,
+			"Parent": "",
+			"Name": "TabAColumn3Extractor",
+			"Type": "Column Header/Content (Table) Extractor"
+		},
+		{
+			"Position": 6,
+			"Parent": "X",
+			"Name": "RptNoRevDb",
+			"Type": "Reverse DB Search Extractor"
+		},
+		{
+			"Position": 7,
+			"Parent": "X",
+			"Name": "ESRReference",
+			"Type": "Standard Extractor"
+		},
+		{
+			"Position": 8,
+			"Parent": "X",
+			"Name": "RptNo",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 9,
+			"Parent": "X",
+			"Name": "ESRCurrency",
+			"Type": "Standard Extractor"
+		},
+		{
+			"Position": 10,
+			"Parent": "X",
+			"Name": "RptCompCode",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 11,
+			"Parent": "X",
+			"Name": "ESRNumber",
+			"Type": "Standard Extractor"
+		},
+		{
+			"Position": 12,
+			"Parent": "X",
+			"Name": "ESRAmount",
+			"Type": "Standard Extractor"
+		},
+		{
+			"Position": 13,
+			"Parent": "X",
+			"Name": "RptSystem",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 14,
+			"Parent": "X",
+			"Name": "RptMandID",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 15,
+			"Parent": "X",
+			"Name": "RptCountry",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 16,
+			"Parent": "X",
+			"Name": "RptVatCountry",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 17,
+			"Parent": "X",
+			"Name": "ErpCrdPk",
+			"Type": "Reverse DB Search Extractor"
+		},
+		{
+			"Position": 18,
+			"Parent": "X",
+			"Name": "ErpCrdNo",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 19,
+			"Parent": "X",
+			"Name": "PreCrdNo",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 20,
+			"Parent": "X",
+			"Name": "PreBankPk",
+			"Type": "Reverse DB Search Extractor"
+		},
+		{
+			"Position": 21,
+			"Parent": "X",
+			"Name": "PreBankCrdNo",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 22,
+			"Parent": "X",
+			"Name": "is_eInvoice",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 23,
+			"Parent": "X",
+			"Name": "CrdVotingAdrBank",
+			"Type": "Condition/Calculation Extract Modifier"
+		},
+		{
+			"Position": 24,
+			"Parent": "X",
+			"Name": "ESRRow",
+			"Type": "CH: ESR Extractor"
+		},
+		{
+			"Position": 25,
+			"Parent": "X",
+			"Name": "PreOrdPk",
+			"Type": "Reverse DB Search Extractor"
+		},
+		{
+			"Position": 26,
+			"Parent": "X",
+			"Name": "PreOrdCrdNo",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 27,
+			"Parent": "X",
+			"Name": "CrdNo",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 28,
+			"Parent": "X",
+			"Name": "PreCrdCountry",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 29,
+			"Parent": "X",
+			"Name": "CrdCountry",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 30,
+			"Parent": "X",
+			"Name": "CrdVatCountry",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 31,
+			"Parent": "X",
+			"Name": "AlternativeBankPk",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 32,
+			"Parent": "X",
+			"Name": "DefaultBankPk",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 33,
+			"Parent": "X",
+			"Name": "BankPk",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 34,
+			"Parent": "X",
+			"Name": "BankCrdNo",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 35,
+			"Parent": "X",
+			"Name": "BankDefault",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 36,
+			"Parent": "X",
+			"Name": "LearnKey",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 37,
+			"Parent": "X",
+			"Name": "PreOrdOrderNo",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 38,
+			"Parent": "X",
+			"Name": "Gr1OrdNo",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 39,
+			"Parent": "X",
+			"Name": "Gr1OrdPk",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 40,
+			"Parent": "X",
+			"Name": "Gr0OrdNo",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 41,
+			"Parent": "X",
+			"Name": "Gr0OrdPk",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 42,
+			"Parent": "X",
+			"Name": "OrdPk",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 43,
+			"Parent": "X",
+			"Name": "OrdNetSum",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 44,
+			"Parent": "X",
+			"Name": "DocClass",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 45,
+			"Parent": "X",
+			"Name": "InvoiceHint",
+			"Type": "Word List Extractor"
+		},
+		{
+			"Position": 46,
+			"Parent": "X",
+			"Name": "CreditHint",
+			"Type": "Word List Extractor"
+		},
+		{
+			"Position": 47,
+			"Parent": "X",
+			"Name": "ReminderHint",
+			"Type": "Word List Extractor"
+		},
+		{
+			"Position": 48,
+			"Parent": "X",
+			"Name": "DocType",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 49,
+			"Parent": "X",
+			"Name": "CancelationHint",
+			"Type": "Word List Extractor"
+		},
+		{
+			"Position": 50,
+			"Parent": "X",
+			"Name": "DocCancelation",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 51,
+			"Parent": "X",
+			"Name": "DocDateLabels",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 52,
+			"Parent": "X",
+			"Name": "DocDate",
+			"Type": "Date Extractor"
+		},
+		{
+			"Position": 53,
+			"Parent": "X",
+			"Name": "DocNo",
+			"Type": "Standard Extractor"
+		},
+		{
+			"Position": 54,
+			"Parent": "X",
+			"Name": "DocBarcode",
+			"Type": "Field Value Pre-Loader"
+		},
+		{
+			"Position": 55,
+			"Parent": "X",
+			"Name": "DocCompliance",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 56,
+			"Parent": "X",
+			"Name": "DocComplianceReminder",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 57,
+			"Parent": "X",
+			"Name": "VatFreeHint",
+			"Type": "Word List Extractor"
+		},
+		{
+			"Position": 58,
+			"Parent": "X",
+			"Name": "LookupCurrency",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 59,
+			"Parent": "X",
+			"Name": "WordlistCurrency",
+			"Type": "Currency Extractor"
+		},
+		{
+			"Position": 60,
+			"Parent": "X",
+			"Name": "DocCurrency",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 61,
+			"Parent": "X",
+			"Name": "LookupRoundingTolerance",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 62,
+			"Parent": "X",
+			"Name": "RoundingTolerance",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 63,
+			"Parent": "X",
+			"Name": "VatRate1",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 64,
+			"Parent": "X",
+			"Name": "VatRate2",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 65,
+			"Parent": "X",
+			"Name": "VatRate0",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 66,
+			"Parent": "X",
+			"Name": "VatRate3",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 67,
+			"Parent": "X",
+			"Name": "VatRate",
+			"Type": "Vat Rate Extractor"
+		},
+		{
+			"Position": 68,
+			"Parent": "X",
+			"Name": "CrdIsNetLess",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 69,
+			"Parent": "X",
+			"Name": "CrdIsVatLess",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 70,
+			"Parent": "X",
+			"Name": "NetAmount",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 71,
+			"Parent": "X",
+			"Name": "VatAmount",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 72,
+			"Parent": "X",
+			"Name": "PreNetAmount1",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 73,
+			"Parent": "X",
+			"Name": "PreVatAmount1",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 74,
+			"Parent": "X",
+			"Name": "PreNetAmount2",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 75,
+			"Parent": "X",
+			"Name": "PreVatAmount2",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 76,
+			"Parent": "X",
+			"Name": "PreNetAmount3",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 77,
+			"Parent": "X",
+			"Name": "PreVatAmount3",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 78,
+			"Parent": "X",
+			"Name": "PreNetAmount0",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 79,
+			"Parent": "X",
+			"Name": "VatCode1",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 80,
+			"Parent": "X",
+			"Name": "VatCode2",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 81,
+			"Parent": "X",
+			"Name": "VatCode3",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 82,
+			"Parent": "X",
+			"Name": "VatCode0",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 83,
+			"Parent": "X",
+			"Name": "LogOpTax1",
+			"Type": "Condition/Calculation Extract Modifier"
+		},
+		{
+			"Position": 84,
+			"Parent": "X",
+			"Name": "LogOpTax2",
+			"Type": "Condition/Calculation Extract Modifier"
+		},
+		{
+			"Position": 85,
+			"Parent": "X",
+			"Name": "LogOpTax3",
+			"Type": "Condition/Calculation Extract Modifier"
+		},
+		{
+			"Position": 86,
+			"Parent": "X",
+			"Name": "NetAmount1",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 87,
+			"Parent": "X",
+			"Name": "VatAmount1",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 88,
+			"Parent": "X",
+			"Name": "NetAmount2",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 89,
+			"Parent": "X",
+			"Name": "VatAmount2",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 90,
+			"Parent": "X",
+			"Name": "NetAmount3",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 91,
+			"Parent": "X",
+			"Name": "VatAmount3",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 92,
+			"Parent": "X",
+			"Name": "NetAmount0",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 93,
+			"Parent": "X",
+			"Name": "VatAmount0",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 94,
+			"Parent": "X",
+			"Name": "GrossAmount",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 95,
+			"Parent": "X",
+			"Name": "LogOpGrossAmount2",
+			"Type": "Condition/Calculation Extract Modifier"
+		},
+		{
+			"Position": 96,
+			"Parent": "X",
+			"Name": "LogOpGrossAmount",
+			"Type": "Condition/Calculation Extract Modifier"
+		},
+		{
+			"Position": 97,
+			"Parent": "X",
+			"Name": "OrdItmTotalNetAmount",
+			"Type": "Column Header/Content (Table) Extractor"
+		},
+		{
+			"Position": 98,
+			"Parent": "X",
+			"Name": "OrdItmOrderArticleNo",
+			"Type": "Column Header/Content (Table) Extractor"
+		},
+		{
+			"Position": 99,
+			"Parent": "X",
+			"Name": "OrdItmSingleNetAmount",
+			"Type": "Column Header/Content (Table) Extractor"
+		},
+		{
+			"Position": 100,
+			"Parent": "X",
+			"Name": "OrdItmQuantity",
+			"Type": "Column Header/Content (Table) Extractor"
+		},
+		{
+			"Position": 101,
+			"Parent": "X",
+			"Name": "TabOrderItems",
+			"Type": "Line Item (Table) Extractor"
+		},
+		{
+			"Position": 102,
+			"Parent": "X",
+			"Name": "LearnTopId",
+			"Type": "Standard Extractor"
+		},
+		{
+			"Position": 103,
+			"Parent": "X",
+			"Name": "DocTopId",
+			"Type": "Payment Term Extractor"
+		},
+		{
+			"Position": 104,
+			"Parent": "X",
+			"Name": "CrdTopId",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 105,
+			"Parent": "X",
+			"Name": "TopId",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 106,
+			"Parent": "X",
+			"Name": "StdCommentId",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 107,
+			"Parent": "X",
+			"Name": "rdbPurchaser",
+			"Type": "Reverse DB Search Extractor"
+		},
+		{
+			"Position": 108,
+			"Parent": "X",
+			"Name": "loValidatePurchaser",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 109,
+			"Parent": "X",
+			"Name": "PurchaserWithoutOrder",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 110,
+			"Parent": "X",
+			"Name": "loPurchaserFromOrder",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 111,
+			"Parent": "X",
+			"Name": "Purchaser",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 112,
+			"Parent": "X",
+			"Name": "PackagingCharge",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 113,
+			"Parent": "X",
+			"Name": "PostageCharge",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 114,
+			"Parent": "X",
+			"Name": "FreightCharge",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 115,
+			"Parent": "X",
+			"Name": "DiverseCharge",
+			"Type": "Amount Extractor"
+		},
+		{
+			"Position": 116,
+			"Parent": "X",
+			"Name": "eInvoiceType",
+			"Type": "Field Value Pre-Loader"
+		},
+		{
+			"Position": 117,
+			"Parent": "X",
+			"Name": "DocDeliveryDate",
+			"Type": "Date Extractor"
+		},
+		{
+			"Position": 118,
+			"Parent": "X",
+			"Name": "IsWithOrder",
+			"Type": "Aggregation Extractor"
+		},
+		{
+			"Position": 119,
+			"Parent": "X",
+			"Name": "loCrdHasSL",
+			"Type": "DB Lookup Extractor"
+		},
+		{
+			"Position": 120,
+			"Parent": "X",
+			"Name": "CrdHasSL",
+			"Type": "Aggregation Extractor"
+		}
+	]
+}

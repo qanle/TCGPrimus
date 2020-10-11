@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 
-import { Customer, Representative } from "../../domain/customer";
-import { CustomerService } from "../../service/customerservice";
+
 import { Table } from "primeng/table";
 
 import { MessageService } from "primeng/api";
@@ -11,6 +10,13 @@ import { DesignTime } from "./designtimes";
 import { DialogService } from "primeng/dynamicdialog";
 import { DynamicDialogRef } from "primeng/dynamicdialog";
 
+import {Extractor} from './extractors'
+ import { ExtractorsService } from "./extractorsservice";
+
+// import { Customer, Representative } from "../../domain/customer";
+// import { CustomerService } from "../../service/customerservice";
+
+
 @Component({
     //selector: 'tcg',
     templateUrl: "./tcg.component.html",
@@ -18,18 +24,18 @@ import { DynamicDialogRef } from "primeng/dynamicdialog";
     providers: [DialogService, MessageService],
 })
 export class TcgComponent implements OnInit {
-    customers: Customer[];
+    extractors: Extractor[];
 
-    representatives: Representative[];
+    //representatives: Representative[];
 
-    statuses: any[];
+    //statuses: any[];
 
     loading: boolean = true;
 
     @ViewChild("dt") table: Table;
 
     constructor(
-        private customerService: CustomerService,
+        private extractorService: ExtractorsService,
         public dialogService: DialogService,
         public messageService: MessageService
     ) {}
@@ -63,31 +69,32 @@ export class TcgComponent implements OnInit {
         }
     }
     showExtractors() {
-        this.customerService.getCustomersLarge().then((customers) => {
-            this.customers = customers;
+        this.extractorService.getExtractor().then((extractors) => {
+            this.extractors = extractors;
+            console.log(this.extractors);
             this.loading = false;
         });
-        this.representatives = [
-            { name: "Amy Elsner", image: "amyelsner.png" },
-            { name: "Anna Fali", image: "annafali.png" },
-            { name: "Asiya Javayant", image: "asiyajavayant.png" },
-            { name: "Bernardo Dominic", image: "bernardodominic.png" },
-            { name: "Elwin Sharvill", image: "elwinsharvill.png" },
-            { name: "Ioni Bowcher", image: "ionibowcher.png" },
-            { name: "Ivan Magalhaes", image: "ivanmagalhaes.png" },
-            { name: "Onyama Limba", image: "onyamalimba.png" },
-            { name: "Stephen Shaw", image: "stephenshaw.png" },
-            { name: "XuXue Feng", image: "xuxuefeng.png" },
-        ];
+        // this.representatives = [
+        //     { name: "Amy Elsner", image: "amyelsner.png" },
+        //     { name: "Anna Fali", image: "annafali.png" },
+        //     { name: "Asiya Javayant", image: "asiyajavayant.png" },
+        //     { name: "Bernardo Dominic", image: "bernardodominic.png" },
+        //     { name: "Elwin Sharvill", image: "elwinsharvill.png" },
+        //     { name: "Ioni Bowcher", image: "ionibowcher.png" },
+        //     { name: "Ivan Magalhaes", image: "ivanmagalhaes.png" },
+        //     { name: "Onyama Limba", image: "onyamalimba.png" },
+        //     { name: "Stephen Shaw", image: "stephenshaw.png" },
+        //     { name: "XuXue Feng", image: "xuxuefeng.png" },
+        // ];
 
-        this.statuses = [
-            { label: "Unqualified", value: "unqualified" },
-            { label: "Qualified", value: "qualified" },
-            { label: "New", value: "new" },
-            { label: "Negotiation", value: "negotiation" },
-            { label: "Renewal", value: "renewal" },
-            { label: "Proposal", value: "proposal" },
-        ];
+        // this.statuses = [
+        //     { label: "Unqualified", value: "unqualified" },
+        //     { label: "Qualified", value: "qualified" },
+        //     { label: "New", value: "new" },
+        //     { label: "Negotiation", value: "negotiation" },
+        //     { label: "Renewal", value: "renewal" },
+        //     { label: "Proposal", value: "proposal" },
+        // ];
     }
 
     onActivityChange(event) {

@@ -17,6 +17,7 @@ import {ToastModule} from 'primeng/toast';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ConfigListDemo } from './designtimetlistdemo';
 import { DesingTimesService } from './designtimesservice';
+import { ExtractorsService } from './extractorsservice';
 
 @NgModule({
   declarations: [TcgComponent, ConfigListDemo],
@@ -38,6 +39,6 @@ import { DesingTimesService } from './designtimesservice';
 	entryComponents: [
 		ConfigListDemo
 	],
-  providers: [DesingTimesService]
+  providers: [DesingTimesService,ExtractorsService]
 })
 export class TcgModule { }
