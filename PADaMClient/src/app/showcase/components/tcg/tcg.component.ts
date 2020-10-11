@@ -4,10 +4,19 @@ import { Customer, Representative } from "../../domain/customer";
 import { CustomerService } from "../../service/customerservice";
 import { Table } from "primeng/table";
 
+import { MessageService } from "primeng/api";
+import { ProductListDemo } from "./productlistdemo";
+import { Product } from "./product";
+
+import {DialogService} from 'primeng/dynamicdialog';
+import {DynamicDialogRef} from 'primeng/dynamicdialog';
+
+
 @Component({
     //selector: 'tcg',
     templateUrl: "./tcg.component.html",
     styleUrls: ["./tcg.component.scss"],
+    providers: [DialogService, MessageService],
 })
 export class TcgComponent implements OnInit {
     customers: Customer[];
@@ -20,8 +29,37 @@ export class TcgComponent implements OnInit {
 
     @ViewChild("dt") table: Table;
 
-    constructor(private customerService: CustomerService) {}
-   
+    constructor(
+        private customerService: CustomerService,
+        public dialogService: DialogService,
+        public messageService: MessageService
+    ) {}
+
+    ref: DynamicDialogRef;
+    show() {
+        this.ref = this.dialogService.open(ProductListDemo, {
+            header: "Choose a Product",
+            width: "70%",
+            contentStyle: { "max-height": "500px", overflow: "auto" },
+            baseZIndex: 10000,
+        });
+
+        this.ref.onClose.subscribe((product: Product) => {
+            if (product) {
+                this.messageService.add({
+                    severity: "info",
+                    summary: "Product Selected",
+                    detail: product.name,
+                });
+            }
+        });
+    }
+
+    ngOnDestroy() {
+        if (this.ref) {
+            this.ref.close();
+        }
+    }
     ngOnInit() {
         this.customerService.getCustomersLarge().then((customers) => {
             this.customers = customers;

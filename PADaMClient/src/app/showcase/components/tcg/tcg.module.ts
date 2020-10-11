@@ -14,9 +14,12 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ProgressBarModule } from 'primeng/progressbar';
 import {ToastModule} from 'primeng/toast';
 
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { ProductListDemo } from './productlistdemo';
+import { ProductService } from './productservice';
 
 @NgModule({
-  declarations: [TcgComponent],
+  declarations: [TcgComponent, ProductListDemo],
   imports: [
     CommonModule,
     AppCodeModule,
@@ -29,7 +32,12 @@ import {ToastModule} from 'primeng/toast';
     InputTextModule,
     InputNumberModule,
     ToastModule,
+    DynamicDialogModule,
     TcgRoutingModule
-  ]
+  ],
+	entryComponents: [
+		ProductListDemo
+	],
+  providers: [ProductService]
 })
 export class TcgModule { }
