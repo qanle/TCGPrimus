@@ -138,7 +138,7 @@
       }
     }
   },
-  "defaultProject": "PADaM",
+  "defaultProject": "primeng",
   "cli": {
     "analytics": "39141d60-d2ef-4a2e-bb8d-0ce749c41070"
   }

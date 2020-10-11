@@ -1,3 +1,4 @@
+
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -26,7 +27,9 @@ import { VersionService } from "./service/versionservice";
 import { AppConfigService } from "./service/appconfigservice";
 import { ProductService } from "./service/productservice";
 
-//import { AppNewsComponent } from './app.news.component';
+import { CustomMinDirective } from './../core/validators/custom-min-validator.directive';
+import { CustomMaxDirective } from './../core/validators/custom-max-validator.directive';
+import { AppNewsComponent } from './app.news.component';
 import { AppTopBarComponent } from "./app.topbar.component";
 import { AppMenuComponent } from "./app.menu.component";
 import { AppConfigComponent } from "./app.config.component";
@@ -48,11 +51,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     declarations: [
         AppComponent,
         HomeComponent,
-        //AppNewsComponent,
+        AppNewsComponent,
         AppTopBarComponent,
         AppMenuComponent,
         AppConfigComponent,
         AppFooterComponent,
+        CustomMaxDirective,
+        CustomMinDirective
         //LoginComponent
     ],
     imports: [

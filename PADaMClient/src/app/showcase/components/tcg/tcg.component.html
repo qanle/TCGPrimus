@@ -1,11 +1,8 @@
 <br /><br />
 <div class="content-section introduction">
     <div class="feature-intro">
-        <h1>PADaM <span>Management</span></h1>
-        <p>
-            Filtering reduces the data by running a search using column filters
-            and an optional global filter.
-        </p>
+        <h1 class="homeText">PADaM <span>Management</span></h1>
+        
     </div>
 </div>
 <div class="content-section implementation">
@@ -106,7 +103,7 @@
                                         dt.filter(
                                             $event.target.value,
                                             'Name',
-                                            'startsWith'
+                                            'contains'
                                         )
                                     "
                                     placeholder="Search by Name"
